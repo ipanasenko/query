@@ -6,18 +6,18 @@ import * as infiniteQueryPropertyOrder from './rules/infinite-query-property-ord
 import type { ESLintUtils } from '@typescript-eslint/utils'
 import type { ExtraRuleDocs } from './types'
 
-export const rules: Record<
-  string,
-  ESLintUtils.RuleModule<
-    string,
-    ReadonlyArray<unknown>,
-    ExtraRuleDocs,
-    ESLintUtils.RuleListener
-  >
-> = {
+export const rules = {
   [exhaustiveDeps.name]: exhaustiveDeps.rule,
   [stableQueryClient.name]: stableQueryClient.rule,
   [noRestDestructuring.name]: noRestDestructuring.rule,
   [noUnstableDeps.name]: noUnstableDeps.rule,
   [infiniteQueryPropertyOrder.name]: infiniteQueryPropertyOrder.rule,
-}
+} satisfies Record<
+string,
+ESLintUtils.RuleModule<
+  string,
+  ReadonlyArray<unknown>,
+  ExtraRuleDocs,
+  ESLintUtils.RuleListener
+>
+>
